@@ -1,0 +1,100 @@
+.task-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 100vh; 
+}
+
+.task-form {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100%; 
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center; 
+  padding: 10px;
+  background-color: #fff; 
+  border-radius: 8px; 
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1); 
+}
+
+.input-field, .select-field {
+
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border 0.3s ease;
+  
+  &:focus {
+    border-color: #007bff;
+  }
+}
+
+.submit-btn {
+  background-color: #cec8d9;
+  color: black;
+  padding-inline: 15px;
+  padding-block: 15px;
+  border: #8b62dc;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #8b62dc;
+    color: white;
+  }
+}
+
+.tasks-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 20px;
+  width: 100%;
+  justify-items: center; 
+  margin-top: 30px;
+}
+
+
+.task-column {
+  width: 100%;
+  max-width: 400px;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-item {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  background-color: #e0f7fa;
+}
+
+.pending {
+  background-color: #fff3e0; 
+}
+
+.in-progress {
+  background-color: #ffe082; 
+}

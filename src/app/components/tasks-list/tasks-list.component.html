@@ -1,0 +1,43 @@
+<form (ngSubmit)="addTask()" class="task-form">
+  <input [(ngModel)]="newTask.name" name="name" placeholder="Title" required class="input-field"/>
+  <input [(ngModel)]="newTask.description" name="description" placeholder="Description" required class="input-field"/>
+  <select [(ngModel)]="newTask.assignedUser" name="assignedUser" required class="select-field">
+    <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+  </select>
+  <button type="submit" class="submit-btn">Add Task</button>
+</form>
+
+<div class="tasks-columns">
+  <div class="tasks-column">
+    <h3>Completed</h3>
+    <ul>
+      <ng-container *ngFor="let task of tasks">
+        <li *ngIf="task.completed">
+          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  
+  <div class="tasks-column">
+    <h3>In Progress</h3>
+    <ul>
+      <ng-container *ngFor="let task of tasks">
+        <li *ngIf="task.inProgress">
+          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <div class="tasks-column">
+    <h3>Pending</h3>
+    <ul>
+      <ng-container *ngFor="let task of tasks">
+        <li *ngIf="!task.completed && !task.inProgress">
+          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
