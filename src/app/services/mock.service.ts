@@ -1,32 +1,41 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { USERS, TASKS } from '../mock-data';  
 
 @Injectable({
   providedIn: 'root',
 })
 export class MockService {
-  private apiUrl = 'http://localhost:8080'; 
-
-  constructor(private http: HttpClient) {}
-
+  
   getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/usuarios`);
+    return of(USERS); 
   }
 
   createUser(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/usuarios`, user);
+    const newUser = { ...user, id: USERS.length + 1 };
+    USERS.push(newUser);
+    return of(newUser);
   }
 
   getTasks(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/tareas`);
+    return of(TASKS);
   }
 
   addTask(task: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/tareas`, task);
+    const newTask = { ...task, id: TASKS.length + 1, completed: false, inProgress: false };
+    TASKS.push(newTask);
+    return of(newTask);
   }
 
   updateTaskStatus(taskId: number, status: string): Observable<any> {
-    return this.http.patch(`${this.apiUrl}/tareas/${taskId}/estado`, { estado: status });
+    const task = TASKS.find(t => t.id === taskId);
+    if (task) {
+      task.status = status;
+      task.completed = status === 'COMPLETED';
+      task.inProgress = status === 'IN_PROGRESS';
+      return of(task);
+    } else {
+      return of(null);
+    }
   }
 }

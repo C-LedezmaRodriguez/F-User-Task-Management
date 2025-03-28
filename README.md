@@ -1,59 +1,63 @@
-# Frontend
+# Frontend Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+## Descripción
 
-## Development server
+Este proyecto frontend está desarrollado con **Angular** y tiene como objetivo gestionar usuarios y tareas. Permite realizar operaciones como la creación de usuarios, la visualización de tareas, la adición de tareas nuevas y la actualización del estado de las tareas.
 
-To start a local development server, run:
+### Tecnologías
 
-```bash
-ng serve
-```
+- **Angular 19.x**: Framework para el desarrollo de aplicaciones web.
+- **RxJS**: Biblioteca para la programación reactiva usando Observables.
+- **HTML/SCSS**: Para la estructura y el diseño de la interfaz de usuario.
+- **SCSS**: Preprocesador de CSS para un diseño más limpio y modular.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Requisitos Previos
 
-## Code scaffolding
+Antes de ejecutar este proyecto, asegúrate de tener instalado lo siguiente:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Node.js** (versión recomendada: 14.x o superior)
+- **Angular CLI** (versión recomendada: 19.x)
 
-```bash
-ng generate component component-name
-```
+### Instalación
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Clona este repositorio en tu máquina local:
+    ```bash
+    git clone <URL del repositorio>
+    ```
 
-```bash
-ng generate --help
-```
+2. Navega al directorio del frontend:
+    ```bash
+    cd frontend
+    ```
 
-## Building
+3. Instala las dependencias del proyecto:
+    ```bash
+    npm install
+    ```
 
-To build the project run:
+4. Inicia el servidor de desarrollo:
+    ```bash
+    ng serve
+    ```
 
-```bash
-ng build
-```
+   Esto iniciará la aplicación en `http://localhost:4200`.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Estructura del Proyecto
 
-## Running unit tests
+- **src/app/components/**: Componentes reutilizables de la interfaz de usuario.
+- **src/app/services/**: Servicios para gestionar la lógica de negocio y las interacciones con la API (simulada con datos mockeados).
+- **src/app/mock-data.ts**: Contiene datos simulados de usuarios y tareas.
+- **src/app/app.component.ts**: Componente principal de la aplicación.
+- **src/styles.scss**: Archivo global de estilos SCSS.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Servicios
 
-```bash
-ng test
-```
+- **MockService**: Proporciona operaciones para obtener, crear y actualizar usuarios y tareas. Los datos provienen de un archivo `mock-data.ts`.
 
-## Running end-to-end tests
+### Funcionalidades
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Visualización de Usuarios**: Muestra una lista de usuarios con su nombre, correo electrónico y rol.
+2. **Creación de Usuarios**: Permite agregar nuevos usuarios.
+3. **Visualización de Tareas**: Muestra una lista de tareas con su estado y usuario asignado.
+4. **Adición de Tareas**: Permite agregar nuevas tareas.
+5. **Actualización de Estado de Tareas**: Cambia el estado de las tareas entre `PENDING`, `IN_PROGRESS`, y `COMPLETED`.

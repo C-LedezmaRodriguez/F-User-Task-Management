@@ -6,35 +6,34 @@
   </select>
   <button type="submit" class="submit-btn">Add Task</button>
 </form>
-
 <div class="tasks-columns">
-  <div class="tasks-column">
-    <h3>Completed</h3>
-    <ul>
-      <ng-container *ngFor="let task of tasks">
-        <li *ngIf="task.completed">
-          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
-        </li>
-      </ng-container>
-    </ul>
-  </div>
-  
-  <div class="tasks-column">
-    <h3>In Progress</h3>
-    <ul>
-      <ng-container *ngFor="let task of tasks">
-        <li *ngIf="task.inProgress">
-          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
-        </li>
-      </ng-container>
-    </ul>
-  </div>
-
-  <div class="tasks-column">
+  <div class="tasks-pending">
     <h3>Pending</h3>
     <ul>
       <ng-container *ngFor="let task of tasks">
-        <li *ngIf="!task.completed && !task.inProgress">
+        <li *ngIf="!task.completed && !task.inProgress" class="task-item-pending">
+          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <div class="tasks-inprogress">
+    <h3>In Progress</h3>
+    <ul>
+      <ng-container *ngFor="let task of tasks">
+        <li *ngIf="task.inProgress && !task.completed" class="task-item-progress">
+          <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <div class="tasks-completed">
+    <h3>Completed</h3>
+    <ul>
+      <ng-container *ngFor="let task of tasks">
+        <li *ngIf="task.completed" class="task-item-completed">
           <span>{{ task.name }} (Assigned to: {{ getUserName(task.assignedUser) }})</span>
         </li>
       </ng-container>

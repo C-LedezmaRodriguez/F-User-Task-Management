@@ -1,8 +1,8 @@
 export const USERS = [
   { id: 1, name: 'Camila', email: 'camila@example.com', role: 'ADMIN' },
   { id: 2, name: 'Jorge', email: 'jorge@example.com', role: 'USER' },
-  { id: 3, name: 'Andrés', email: 'andres@example.com', role: 'USER' },
-  { id: 4, name: 'Lucía', email: 'lucia@example.com', role: 'USER' },
+  { id: 3, name: 'Andres', email: 'andres@example.com', role: 'USER' },
+  { id: 4, name: 'Lucia', email: 'lucia@example.com', role: 'USER' },
   { id: 5, name: 'Miguel', email: 'miguel@example.com', role: 'USER' },
 ];
 
